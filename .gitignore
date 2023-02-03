@@ -30,3 +30,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+
+# Next ignore
+
+vendor/sneat-1.0.0
