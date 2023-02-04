@@ -6456,6 +6456,20 @@ label.btn {
   color: #71dd37;
 }
 
+.btn-logins {
+  color: #fff;
+  background-color: #7f84f9;
+  border-color: #7f84f9;
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(105, 108, 255, 0.4);
+}
+
+.btn-logins:hover {
+  color: #fff;
+  background-color: #5f61e6;
+  border-color: #5f61e6;
+  transform: translateY(-1px);
+}
+
 .btn-info {
   color: #fff;
   background-color: #03c3ec;
@@ -6536,8 +6550,8 @@ label.btn {
 
 .btn-warning {
   color: #fff;
-  background-color: #ffab00;
-  border-color: #ffab00;
+  background-color: #f9b23e;
+  border-color: #f9b23e;
   box-shadow: 0 0.125rem 0.25rem 0 rgba(255, 171, 0, 0.4);
 }
 .btn-warning:hover {

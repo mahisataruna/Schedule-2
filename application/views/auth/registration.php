@@ -8,11 +8,9 @@
               <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
                   
-                  <span class="app-brand-text demo text-body fw-bolder">HR-Management</span>
+                  <span class="app-brand-text demo text-body fw-bolder"><?= $title; ?></span>
                 </a>
               </div>
-              <!-- /Logo -->
-              <h4 class="mb-2">Adventure starts here 🚀</h4>
               <p class="mb-4">Make your app management easy and fun!</p>
 
               <form id="formAuthentication" accept-charset="utf-8" class="mb-3" action="<?= base_url('auth/registration'); ?>" method="POST">
@@ -68,7 +66,7 @@
                   </div>
                 </div>    
                 <!-- Submit -->
-                <button type="submit" class="btn btn-dark d-grid w-100">Register</button>
+                <button type="submit" class="btn btn-primary d-grid w-100">Sign up</button>
               </form>
 
               <p class="text-center">
