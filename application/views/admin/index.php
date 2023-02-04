@@ -47,8 +47,8 @@
                               </div>
                             </div>
                           </div>
-                          <span class="fw-semibold d-block mb-1 text-primary">Profit</span>
-                          <h3 class="card-title mb-3 text-primary">$12,628</h3>
+                          <span class="fw-semibold d-block mb-1 text-primary">Member</span>
+                          <h3 class="card-title mb-3 text-primary">1</h3>
                           <a href="" class="btn btn-sm rounded-pill btn-outline-primary">
                             See Details
                             <span class="tf-icons bx bx-right-arrow-alt"></span>
@@ -62,7 +62,7 @@
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
-                              <i class="text-info bx bx-chart bx-lg"></i>
+                              <i class="text-info bx bx-calendar bx-lg"></i>
                             </div>
                             <div class="dropdown">
                               <button
@@ -81,7 +81,7 @@
                               </div>
                             </div>
                           </div>
-                          <span class="fw-semibold d-block mb-1 text-info">Employe</span>
+                          <span class="fw-semibold d-block mb-1 text-info">Schedule</span>
                           <h3 class="card-title mb-3 text-info">15</h3>
                           <a href="<?= base_url('admin/employe'); ?>" class="btn btn-sm rounded-pill btn-outline-info">
                             See Details
@@ -116,8 +116,8 @@
                               </div>
                             </div>
                           </div>
-                          <span class="fw-semibold d-block mb-1 text-success">Profit</span>
-                          <h3 class="card-title mb-3 text-success">15</h3>
+                          <span class="fw-semibold d-block mb-1 text-success">Cost</span>
+                          <h3 class="card-title mb-3 text-success">Rp. 15.000</h3>
                           <a href="" class="btn btn-sm rounded-pill btn-outline-success">
                             See Details
                             <span class="tf-icons bx bx-right-arrow-alt"></span>

@@ -15,7 +15,7 @@
 
         <!-- Start content -->
         <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 col-md">
                   <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
                       <a class="nav-link" href="<?= base_url('user/edit'); ?>"><i class="bx bx-user me-1"></i> Account</a>
@@ -27,7 +27,7 @@
                       >
                     </li>
                   </ul>
-                  <div class="col-6">
+                  <div class="col-lg-6 col-md col">
                         <div class="card mb-4">
                     <h5 class="card-header">Social media connection</h5>
                     <!-- Account -->
