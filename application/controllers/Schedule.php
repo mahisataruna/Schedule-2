@@ -47,11 +47,37 @@ class Schedule extends CI_Controller
         $data['title']  = 'My Notes';
         $data['user'] = $this->db->get_where('user', ['email' => 
         $this->session->userdata('email')])->row_array();
-        // Tampil views
-        $this->load->view('templates/header', $data);
-        $this->load->view('templates/sidebar', $data);
-        $this->load->view('templates/navbar', $data);
-        $this->load->view('schedule/notes', $data);
-        $this->load->view('templates/footer');
+        // Ambil query db berdasar user session login (id)
+        $this->load->model('Jadwal_m', 'jadwal');
+        $data['notesMember'] = $this->jadwal->getNotes($data['user']['id']);
+        // Form validation
+        $this->form_validation->set_rules('title', 'Title', 'required');
+
+        if ($this->form_validation->run() == false) {
+
+            // Tampil views
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/navbar', $data);
+            $this->load->view('schedule/notes', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+
+                'user_id' => $this->input->post('user_id'),
+				'title' => $this->input->post('title'),
+				'description' => $this->input->post('description'),
+				'date_created' => time() 
+			];
+			$this->db->insert('notes', $data);
+            // Set flashdata
+			$this->session->set_flashdata('message', 
+                        '<div class="alert alert-primary alert-dismissible" role="alert">
+                            <i class="bx bx-fw bxs-bell bx-tada"></i> Your notes is added! 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>'
+                        );
+			redirect('schedule/notes');
+        }
     }
 }

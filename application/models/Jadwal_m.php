@@ -18,7 +18,7 @@ class Jadwal_m extends CI_Model
     {
         $query  = "SELECT * FROM `notes`
                    JOIN `user`
-                   ON `user`.`id` = `notes`.`id_user`
+                   ON `user`.`id` = `notes`.`user_id`
                    WHERE `user`.`id` = $getNotes_data
                   ";
         return $this->db->query($query)->result_array();          
