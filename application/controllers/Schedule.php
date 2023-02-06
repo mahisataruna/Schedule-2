@@ -67,7 +67,7 @@ class Schedule extends CI_Controller
                 'user_id' => $this->input->post('user_id'),
 				'title' => $this->input->post('title'),
 				'description' => $this->input->post('description'),
-				'date_created' => time() 
+				'notes_created' => time() 
 			];
 			$this->db->insert('notes', $data);
             // Set flashdata

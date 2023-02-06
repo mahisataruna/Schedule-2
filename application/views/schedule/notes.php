@@ -14,9 +14,9 @@
         </nav>
 
         <!-- Start -->
-        <div class="row">
+        <div class="row mb-5">
             <!-- Card notes -->
-            <div class="col-lg-8 col-md col-sm col">
+            <div class="col-md col-lg-8 mb-3">
                 <!-- Pesan error validation-->
 			    <?php if(validation_errors()) : ?>
 				  <div class="alert alert-danger" role="alert">
@@ -34,18 +34,18 @@
                     </div>
                     <div class="card-body">
                         <!-- Star here -->
-                        <div class="row">
+                        <div class="row mb-4">
                             <?php
                                 foreach ($notesMember as $nm) {
                             
                             ?>
-                            <div class="col-lg-6">
+                            <div class="col-md col-lg-6 mb-3">
                                 <!-- Notes 1 -->
                                 <div class="card bg-light">
                                     <div class="card-header text-end mb-0">
                                         <small class="badge rounded-pill bg-label-primary">
                                             <i class="bx bx-calendar"></i>
-                                            <?= date('d F Y', $nm['date_created']); ?>
+                                            <?= date('d F Y', $nm['notes_created']); ?>
                                         </small>
                                     </div>
                                     <div class="card-body">
@@ -64,24 +64,24 @@
                 </div>
             </div>
             <!-- Card statistic -->
-            <div class="col-lg-4 col-md col-sm col">
-                <div class="card">
+            <div class="col-md col-lg-4 mb-3">
+                <div class="card bg-light text-center">
+                    <?php
+                        include 'conn.php';
+                        $id = $user['id'];
+                        $data_nt = mysqli_query($koneksi, "SELECT * FROM notes WHERE user_id=$id");
+                        $jnt = mysqli_num_rows($data_nt);
+                    ?> 
                     <div class="card-header d-flex align-items-start justify-content-between">
                         <div class="flex-shrink-0 mt-2">
-                          <h5 class="card-title"><i class="bx bx-fw bx-chart bx-tada"></i> Statistic</h5>
+                          <h5 class="card-title"><i class="bx bx-fw bx-chart bx-tada"></i> Notes Count</h5>
                         </div>
                     </div>
                     <div class="card-body">
-                        <!-- Start here -->
-                        <div class="card bg-light text-center mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title"><span class="bx bx-book"></span> Notes Count</h5>
-                                <h3 class="card-text mb-4">0</h3>
-                                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#addNotes" class="btn btn-primary"><span class="bx bx-plus bx-flashing"></span> Add New Notes</a>
-                            </div>
-                        </div>
+                        <h2 class="card-text mb-4"><?= $jnt; ?></h2>
+                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#addNotes" class="btn btn-primary"><span class="bx bx-plus bx-flashing"></span> Add New Notes</a>
                     </div>
-                </div>
+                  </div>
             </div>
         </div>
 
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </form>
             </div>
