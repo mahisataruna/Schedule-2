@@ -41,4 +41,17 @@ class Schedule extends CI_Controller
         }  
         
     }
+    // Controller notes
+    public function notes()
+    {
+        $data['title']  = 'My Notes';
+        $data['user'] = $this->db->get_where('user', ['email' => 
+        $this->session->userdata('email')])->row_array();
+        // Tampil views
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/navbar', $data);
+        $this->load->view('schedule/notes', $data);
+        $this->load->view('templates/footer');
+    }
 }
