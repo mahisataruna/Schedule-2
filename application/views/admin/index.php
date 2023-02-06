@@ -83,7 +83,7 @@
                           </div>
                           <span class="fw-semibold d-block mb-1 text-info">Schedule</span>
                           <h3 class="card-title mb-3 text-info">15</h3>
-                          <a href="<?= base_url('admin/employe'); ?>" class="btn btn-sm rounded-pill btn-outline-info">
+                          <a href="<?= base_url('schedule'); ?>" class="btn btn-sm rounded-pill btn-outline-info">
                             See Details
                             <span class="tf-icons bx bx-right-arrow-alt"></span>
                           </a>

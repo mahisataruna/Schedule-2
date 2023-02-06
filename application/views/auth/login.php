@@ -10,7 +10,7 @@
                   <span class="app-brand-text demo text-body fw-bolder"><?= $title; ?></span>
                 </a>
               </div>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
+              <p class="mb-4">Sign-in to your account and start the adventure</p>
               <?= $this->session->flashdata('message'); ?>  
               <form accept-charset="utf-8" class="mb-3" action="<?= base_url('auth'); ?>" method="post">
                 <div class="mb-3">
@@ -54,12 +54,14 @@
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in
                   </button>
-                </div>
+                  <div class="divider">
+                      <div class="divider-text"><span>New on our platform?</span></div>
+                  </div>
               </form>
 
               <p class="text-center">
-                <span>New on our platform?</span>
-                <a href="<?= base_url('auth/registration'); ?>">
+                
+                <a href="<?= base_url('auth/registration'); ?>" class="btn btn-outline-primary d-grid w-100">
                   <span>Create an account</span>
                 </a>
               </p>
