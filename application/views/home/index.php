@@ -14,66 +14,79 @@
         </nav>
 
         <!-- Start -->
-        <div class="row mb-5">
-            <div class="col-lg-3">
-                  <div
-                    id="carouselExample-cf"
-                    class="carousel carousel-dark slide carousel-fade"
-                    data-bs-ride="carousel"
-                  >
-                    <ol class="carousel-indicators">
-                      <li data-bs-target="#carouselExample-cf" data-bs-slide-to="0" class="active"></li>
-                      <li data-bs-target="#carouselExample-cf" data-bs-slide-to="1"></li>
-                      <li data-bs-target="#carouselExample-cf" data-bs-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="card h-100">
-                                <img class="card-img-top" src="<?= base_url('assets/'); ?>img/elements/2.jpg" alt="Card image cap" />
+        <div class="col-lg col-md col-sm">
+
+            <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card-wrapper container-sm d-flex  justify-content-around">
+                            
+                            <div class="card" style="width: 18rem;">
+                                <img src="<?= base_url('assets/'); ?>img/backgrounds/18.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                                    </p>
-                                    <a href="javascript:void(0)" class="btn btn-outline-primary">Go somewhere</a>
+                                    <h5 class="card-title">Card Title</h5>
+                                    <p>Lorem ipsum dolor sit amet</p>
+                                    <a href="" class="btn btn-primary">Add Chart</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card h-100">
-                                <img class="card-img-top" src="<?= base_url('assets/'); ?>img/elements/2.jpg" alt="Card image cap" />
+                            <div class="card" style="width: 18rem;">
+                                <img src="<?= base_url('assets/'); ?>img/backgrounds/18.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                                    </p>
-                                    <a href="javascript:void(0)" class="btn btn-outline-primary">Go somewhere</a>
+                                    <h5 class="card-title">Card Title</h5>
+                                    <p>Lorem ipsum dolor sit amet</p>
+                                    <a href="" class="btn btn-primary">Add Chart</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="card h-100">
-                                <img class="card-img-top" src="<?= base_url('assets/'); ?>img/elements/2.jpg" alt="Card image cap" />
+                            <div class="card" style="width: 18rem;">
+                                <img src="<?= base_url('assets/'); ?>img/backgrounds/18.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the card's content.
-                                    </p>
-                                    <a href="javascript:void(0)" class="btn btn-outline-primary">Go somewhere</a>
+                                    <h5 class="card-title">Card Title</h5>
+                                    <p>Lorem ipsum dolor sit amet</p>
+                                    <a href="" class="btn btn-primary">Add Chart</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card-wrapper container-sm d-flex   justify-content-around">
+                            <div class="card  " style="width: 18rem;">
+                                <img src="<?= base_url('assets/'); ?>img/backgrounds/18.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <p>Lorem ipsum dolor sit amet</p>
+                                    <a href="" class="btn btn-primary">Add Chart</a>
+                                </div>
+                            </div>
+                            <div class="card  " style="width: 18rem;">
+                                <img src="<?= base_url('assets/'); ?>img/backgrounds/18.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <p>Lorem ipsum dolor sit amet</p>
+                                    <a href="" class="btn btn-primary">Add Chart</a>
+                                </div>
+                            </div>
+                            <div class="card  " style="width: 18rem;">
+                                <img src="<?= base_url('assets/'); ?>img/backgrounds/18.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card Title</h5>
+                                    <p>Lorem ipsum dolor sit amet</p>
+                                    <a href="" class="btn btn-primary">Add Chart</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExample-cf" role="button" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExample-cf" role="button" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </a>
-                  </div>
+                    
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
         <!-- End -->
 
