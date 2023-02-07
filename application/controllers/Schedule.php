@@ -80,4 +80,43 @@ class Schedule extends CI_Controller
 			redirect('schedule/notes');
         }
     }
+    // Calendar
+    public function calendar()
+    {
+        $data['title']  = 'My Calendar';
+        $data['user'] = $this->db->get_where('user', ['email' => 
+        $this->session->userdata('email')])->row_array();
+        // Load modals calendar
+        $this->load->model('Jadwal_m', 'evnt');
+        $data['detailEvents'] = $this->evnt->getEventDtl($data['user']['id']);
+        // form validation
+        $this->form_validation->set_rules('description', 'Description', 'required');
+
+        if ($this->form_validation->run() == false) {
+
+            // Tampil
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/navbar', $data);
+            $this->load->view('schedule/calendar', $data);
+            $this->load->view('templates/footer');
+        } else {
+            $data = [
+
+				'user_id'       => $this->input->post('user_id'),
+				'description'   => $this->input->post('description'),
+				'start'         => $this->input->post('start'),
+				'end'           => $this->input->post('end')
+			];
+			$this->db->insert('events', $data);
+
+			$this->session->set_flashdata('message', 
+                        '<div class="alert alert-primary alert-dismissible" role="alert">
+                            <i class="bx bx-fw bxs-bell bx-tada"></i> Your event is added! 
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>'
+                        );
+			redirect('schedule/calendar');
+        }
+    }
 }

@@ -107,7 +107,42 @@
     <script src="<?= base_url('assets/'); ?>js/dashboards-analytics.js"></script>
     <script src="<?= base_url('assets/'); ?>js/ui-popover.js"></script>
 
+    <!-- Fullcalendar -->
+    <script src="<?= base_url('assets/'); ?>vendor/moment/moment.min.js"></script>
+    <script src="<?= base_url('assets/'); ?>vendor/fullcalendar/main.js"></script>
+
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Fullcalendar -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                    events: [ 
+                        <?php 
+                            include 'conn.php';
+                            $id=$user['id'];
+                            $data_ev = mysqli_query($koneksi, "SELECT * FROM events WHERE user_id=$id");
+                            //melakukan looping
+                            while($d = mysqli_fetch_array($data_ev)){     
+                        ?>
+                        {
+                            title: '<?php echo $d['description']; ?>', 
+                            start: '<?php echo $d['start']; ?>', 
+                            end: '<?php echo $d['end']; ?>'
+                            },
+                        <?php } ?>
+                    ],
+                    selectOverlap: function (event) {
+                        return event.rendering === 'background';
+                    }
+                });
+    
+            calendar.render();
+        });
+    </script>
+
   </body>
 </html>

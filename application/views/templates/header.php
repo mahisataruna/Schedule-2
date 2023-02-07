@@ -40,6 +40,8 @@
 
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/libs/apex-charts/apex-charts.css" />
 
+    <!-- Fullcalendar -->
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/fullcalendar/main.css" />
     <!-- Page CSS -->
 
     <!-- Helpers -->
