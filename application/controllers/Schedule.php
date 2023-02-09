@@ -10,7 +10,7 @@ class Schedule extends CI_Controller
         $this->session->userdata('email')])->row_array();
         // Ambil data schedule
         $this->load->model('Jadwal_m', 'jadwal');
-        $data['scheduleMember'] = $this->jadwal->getSchedule();
+        $data['scheduleMember'] = $this->jadwal->getSchedule($data['user']['id']);
         // Form validation
         $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
         
@@ -27,6 +27,8 @@ class Schedule extends CI_Controller
 				'tanggal' => $this->input->post('tanggal'),
 				'lokasi' => $this->input->post('lokasi'),
 				'kegiatan' => $this->input->post('kegiatan'),
+                'pemasukan' => $this->input->post('pemasukan'),
+                'pengeluaran' => $this->input->post('pengeluaran'),
 				'status' => $this->input->post('status') 
 			];
 			$this->db->insert('schedule', $data);

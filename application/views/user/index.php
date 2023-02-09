@@ -27,12 +27,12 @@
                 <div class="user-profile-info">
                   <h4>
                     <?= $user['name']; ?>
-                    <span class="badge badge-center rounded-pill bg-primary" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="right" data-bs-html="true" title="" data-bs-original-title="<i class='bx bx-fw bxs-bell bx-tada bx-xs' ></i> <span> Your account is active and verified.</span>" aria-describedby="tooltip753344">
+                    <span class="badge badge-center rounded-pill bg-primary badge-sm" data-bs-toggle="tooltip" data-bs-offset="0,4" data-bs-placement="right" data-bs-html="true" title="" data-bs-original-title="<i class='bx bx-fw bxs-bell bx-tada bx-xs' ></i> <span> Your account is active and verified.</span>" aria-describedby="tooltip753344">
                       <?php 
                         if ($user['is_active'] == 1) {
-                          echo '<i class="bx bx-check text-white"></i>';
+                          echo '<i class="bx bx-fw bx-check bx-flashing text-white mt-0"></i>';
                         } else {
-                          echo '<i class="bx bx-close text-primary"></i>';
+                          echo '<i class="bx bx-fw bx-x text-primary mt-0"></i>';
                         }
                       ?>
                     </span>

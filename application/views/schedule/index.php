@@ -44,6 +44,8 @@
 										<th scope="col-sm" style="text-align: center;">Date</th>
 										<th scope="col-sm">Location</th>
 										<th scope="col-sm">Schedule</th>
+                                        <th scope="col-sm">pemasukan</th>
+                                        <th scope="col-sm">pengeluaran</th>
 										<th scope="col-sm" style="text-align: center;">Status</th>
 										<th scope="col-sm" style="text-align: center;">Action</th>
                                     </tr>
@@ -51,12 +53,18 @@
                                 <tbody>
                                 <!-- Start foreach -->
                                     <?php $i=1; ?>
-								    <?php foreach ($scheduleMember as $sm) :  ?>
+								    <?php foreach ($scheduleMember as $sm) :  
+                                        {
+                                            $pmsk=number_format($sm['pemasukan'],0,",",".");
+                                            $pnlr=number_format($sm['pengeluaran'],0,",",".");
+                                    ?>
                                     <tr id="tabelschedule">
                                         <th scope="row" width="2%" style="text-align: center;"><?= $i; ?></th>
                                         <td width="20%" style="text-align: center;"><?= $sm['tanggal']; ?></td>
                                         <td width="30%"><?= $sm['lokasi']; ?></td>
                                         <td width="30%"><?= $sm['kegiatan']; ?></td>
+                                        <td width="20%">Rp. <?= $pmsk; ?></td>
+                                        <td width="20%">Rp. <?= $pnlr; ?></td>
                                         <td style="text-align: center;">
                                         <?php 
                                             if ($sm['status'] == 1) {
@@ -72,6 +80,7 @@
 									    </td>
                                     </tr>
                                     <?php $i++; ?>
+                                    <?php } ?>
 									<?php endforeach ; ?>  
                                 <!-- End foreach -->
                                 </tbody>
@@ -117,6 +126,16 @@
                             <div class="col mb-3">
                                 <label for="lokasi" class="form-label">Schedule</label>
                                 <textarea name="kegiatan" id="kegiatan" cols="30" rows="10" class="form-control" placeholder="Enter Schedule Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
+                                <label for="pemasukan" class="form-label">Pemasukan</label>
+                                <input type="number" id="pemasukan" name="pemasukan" class="form-control" placeholder="Ex. 10000">
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <label for="pengeluaran" class="form-label">Pengeluaran</label>
+                                <input type="number" id="pengeluaran" name="pengeluaran" class="form-control" placeholder="Ex. 10000">
                             </div>
                         </div>
                         <div class="row">

@@ -4,12 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Jadwal_m extends CI_Model
 {
-    public function getSchedule()
+    public function getSchedule($getSchedule_data=null)
     {
         $query = "SELECT * FROM `schedule`
-                --   JOIN `user`
-		        --   ON `user`.`id` = `schedule`.`id_member`
-                ORDER BY `id` ASC
+                  JOIN `user`
+		          ON `user`.`id` = `schedule`.`user_id`
+                  WHERE `schedule`.`user_id` = $getSchedule_data
+                  
 		";
 		return $this->db->query($query)->result_array();
     }
