@@ -8,8 +8,9 @@
                         href=""
                         target="_blank"
                         class="footer-text fw-bolder"
-                        >Schedule 2 Web App </a
+                        >Schedule 2 Web </a
                       >
+                      - Alpha Version 1.0.7 |
                       ©
                       <script>
                         document.write(new Date().getFullYear());

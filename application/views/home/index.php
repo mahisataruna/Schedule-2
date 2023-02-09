@@ -14,7 +14,7 @@
         </nav>
 
         <!-- Start -->
-        <div class="col-lg col-md col-sm">
+        <div class="col-lg col-md col-sm mb-5">
 
             <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -86,6 +86,19 @@
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
+            </div>
+        </div>
+
+        <div class="row mb-5">
+            <div class="col-lg-4 col-md col-sm">
+                <div class="card bg-light">
+                    <div class="card-header">
+                        <h5 class="card-title">Add Notes</h5>
+                    </div>
+                    <div class="card-body">
+    
+                    </div>
+                </div>
             </div>
         </div>
         <!-- End -->
