@@ -16,6 +16,9 @@
         <!-- Start -->
         <div class="row">
             <div class="col-lg-6 col-md col-sm col">
+                <!-- Pesan error validation-->
+			    <?= form_error('menu', '<div class="alert alert-danger" role="alert">', ' </div>'); ?>
+			    <?= $this->session->flashdata('message'); ?>
                 <div class="card">
                     <div class="card-header d-flex align-items-start justify-content-between">
                         <div class="flex-shrink-0 mt-2">
@@ -27,10 +30,10 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive text-nowrap" style="height: 350px">
-                            <table class="table table-bordered">
-                                <thead>
+                            <table class="table table-bordered table-sm">
+                                <thead class="bg-light">
                                     <tr>
-                                        <th>#</th>
+                                        <th style="text-align: center;">#</th>
                                         <th>Menu Name</th>
                                         <th style="text-align: center;">Actions</th>
                                     </tr>
@@ -44,12 +47,15 @@
                                         <th scope="row" width="2%" style="text-align: center;"><?= $i; ?></th>
                                         <td width="20%"><?= $m['menu']; ?></td>
                                         <td width="4%" style="text-align: center;">
-                                            <a href="" class="btn btn-icon btn-success">
-                                                <span class="tf-icons bx bx-edit"></span>
-                                            </a>
-                                            <a href="" class="btn btn-icon btn-danger">
-                                                <span class="tf-icons bx bx-trash"></span>
-                                            </a>
+                                            <div class="btn-group">
+
+                                                <a href="" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#editMenuModal<?php echo $m['id'];?>">
+                                                    <span class="tf-icons bx bx-edit"></span>
+                                                </a>
+                                                <a href="<?= base_url('menu/delete_menu/') . $m['id'];?>" class="btn btn-icon btn-danger" onclick="return confirm('Are you sure delete this menu?')">
+                                                    <span class="tf-icons bx bx-trash"></span>
+                                                </a>
+                                            </div>    
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -79,12 +85,45 @@
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="" method="post">
+                <form action="<?= base_url('menu'); ?>" method="post">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col mb-3">
-                                <label for="nameBasic" class="form-label">Menu Name</label>
+                                <label for="menu" class="form-label">Menu Name</label>
                                 <input type="text" id="menu" name="menu" class="form-control" placeholder="Enter Menu Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Modal Edit -->
+    <?php $i = 0;
+        foreach ($menu as $m) : $i++;
+    ?>
+    <div class="modal fade" id="editMenuModal<?php echo $m['id'];?>" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editMenuModal">
+                        <i class="bx bx-fw bx-plus bx-flashing"></i>
+                        Edit Menu
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <?= form_open_multipart('menu/edit_menu');?>
+                    <div class="modal-body">
+                        <input type="hidden" name="id" id="id" value="<?php echo $m['id']; ?>">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="menu" class="form-label">Menu Name</label>
+                                <input type="text" id="menu" name="menu" class="form-control" value="<?= $m['menu'] ?>">
                             </div>
                         </div>
                     </div>
@@ -95,4 +134,5 @@
             </div>
         </div>
     </div>
+    <?php endforeach; ?>
     <!-- End -->
