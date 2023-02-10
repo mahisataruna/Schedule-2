@@ -16,19 +16,27 @@
         <!-- Start -->
         <div class="row">
             <div class="col-lg col-md col-sm col">
+                <!-- Pesan error validation-->
+			<?php if(validation_errors()) : ?>
+				<div class="alert alert-danger" role="alert">
+					<?= validation_errors(); ?>
+				</div>
+			<?php endif; ?>
+
+			<?= $this->session->flashdata('message'); ?>
                 <div class="card">
                     <div class="card-header d-flex align-items-start justify-content-between">
                         <div class="flex-shrink-0 mt-2">
                           <h5 class="card-title"><i class="bx bx-fw bx-folder bx-tada"></i> Submenu Management</h5>
                         </div>
-                        <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicModal">
-                          Add Menu
+                        <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSubmenuModal">
+                          Add Submenu
                         </a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive text-nowrap" style="height: 350px">
-                            <table class="table table-bordered">
-                                <thead>
+                            <table class="table table-bordered table-sm">
+                                <thead class="bg-light">
                                     <tr>
                                         <th scope="col-sm" style="text-align: center;">#</th>
 										<th scope="col-sm">Submenu Name</th>
@@ -58,12 +66,14 @@
 											?>
 										</td>
                                         <td width="4%" style="text-align: center;">
-                                            <a href="" class="btn btn-icon btn-success">
-                                                <span class="tf-icons bx bx-edit"></span>
-                                            </a>
-                                            <a href="" class="btn btn-icon btn-danger">
-                                                <span class="tf-icons bx bx-trash"></span>
-                                            </a>
+                                            <div class="btn-group">
+                                                <a href="" class="btn btn-icon btn-success">
+                                                    <span class="tf-icons bx bx-edit"></span>
+                                                </a>
+                                                <a href="" class="btn btn-icon btn-danger">
+                                                    <span class="tf-icons bx bx-trash"></span>
+                                                </a>
+                                            </div>    
                                         </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -81,3 +91,64 @@
 
     </div>
     <!-- / Content -->    
+
+    <!-- Modal Add submenu -->
+    <div class="modal fade" id="addSubmenuModal" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">
+                        <i class="bx bx-fw bx-plus bx-flashing"></i>
+                        Add Submenu
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?= base_url('menu/subMenu'); ?>" method="post">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="title" class="form-label">Submenu Name</label>
+                                <input type="text" id="title" name="title" class="form-control" placeholder="Enter Submenu Name">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="menu_id" class="form-label">Choose Menu</label>
+                                <select class="form-select" id="menu_id" name="menu_id" aria-label="Default select example">
+                                    <option selected="">-- Menu --</option>
+                                    <?php foreach($menu as $m) : ?>
+								    <option value="<?= $m['id']; ?>"><?= $m['menu']; ?></option>	
+							        <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="url" class="form-label">URL Submenu</label>
+                                <input type="text" id="url" name="url" class="form-control" placeholder="Enter Submenu URL">
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col mb-3">
+                                <label for="icon" class="form-label">Icon Submenu</label>
+                                <input type="text" id="icon" name="icon" class="form-control" placeholder="Enter Submenu Icon">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="is_active" class="form-label">Active Submenu?</label>
+                                <input class="form-check-input" type="checkbox" value="1" name="is_active" id="is_active" checked="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+
+    <!-- Modal Add Edit submenu Here -->
+    <!-- End -->

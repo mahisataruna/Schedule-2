@@ -5,12 +5,12 @@
                   >
                     <div>
                       <a
-                        href=""
+                        href="https://github.com/mahisataruna"
                         target="_blank"
                         class="footer-text fw-bolder"
                         >Schedule 2 Web </a
                       >
-                      - Alpha Version 1.0.18 |
+                      - Alpha Version 1.1.19 |
                       ©
                       <script>
                         document.write(new Date().getFullYear());
@@ -54,39 +54,27 @@
     </div>
     <!-- / Layout wrapper -->
 
-    <!-- <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div> -->
     <!-- Logout Modal -->
-                        <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel1">Ready to leave?</h5>
-                                <button
-                                  type="button"
-                                  class="btn-close"
-                                  data-bs-dismiss="modal"
-                                  aria-label="Close"
-                                ></button>
-                              </div>
-                              <div class="modal-body">
-                                Select "Logout" below if you are ready to end your current session.
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                  Close
-                                </button>
-                                <a class="btn btn-primary" href="<?= base_url('auth/logout') ?>">Logout</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel1">Ready to leave?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Select "Logout" below if you are ready to end your current session.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+              Close
+            </button>
+            <a class="btn btn-primary" href="<?= base_url('auth/logout') ?>">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End -->
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
