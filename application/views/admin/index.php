@@ -28,7 +28,7 @@
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
-                              <i class="text-primary bx bx-user bx-lg"></i>
+                              <i class="text-primary bx bx-user bx-md"></i>
                             </div>
                             <div class="dropdown">
                               <button
@@ -43,16 +43,11 @@
                               </button>
                               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
                                 <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
                               </div>
                             </div>
                           </div>
                           <span class="fw-semibold d-block mb-1 text-primary">Member</span>
                           <h3 class="card-title mb-3 text-primary">1</h3>
-                          <a href="" class="btn btn-sm rounded-pill btn-outline-primary">
-                            See Details
-                            <span class="tf-icons bx bx-right-arrow-alt"></span>
-                          </a>
                         </div>
                       </div>
                     </div>
@@ -62,7 +57,7 @@
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
-                              <i class="text-info bx bx-calendar bx-lg"></i>
+                              <i class="text-info bx bx-calendar bx-md"></i>
                             </div>
                             <div class="dropdown">
                               <button
@@ -76,17 +71,12 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                               </button>
                               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                <a class="dropdown-item" href="<?= base_url('schedule'); ?>">View More</a>
                               </div>
                             </div>
                           </div>
                           <span class="fw-semibold d-block mb-1 text-info">Schedule</span>
                           <h3 class="card-title mb-3 text-info">15</h3>
-                          <a href="<?= base_url('schedule'); ?>" class="btn btn-sm rounded-pill btn-outline-info">
-                            See Details
-                            <span class="tf-icons bx bx-right-arrow-alt"></span>
-                          </a>
                           <!-- <small class="text-info fw-semibold">See Details <i class="bx bx-right-arrow-alt"></i></small> -->
                         </div>
                       </div>
@@ -97,7 +87,7 @@
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
-                              <i class="text-success bx bx-dollar bx-lg"></i>
+                              <i class="text-success bx bx-dollar bx-md"></i>
                             </div>
                             <div class="dropdown">
                               <button
@@ -111,17 +101,12 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                               </button>
                               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
-                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                                <a class="dropdown-item" href="<?= base_url('schedule'); ?>">View More</a>
                               </div>
                             </div>
                           </div>
                           <span class="fw-semibold d-block mb-1 text-success">Cost</span>
                           <h3 class="card-title mb-3 text-success">Rp. 15.000</h3>
-                          <a href="" class="btn btn-sm rounded-pill btn-outline-success">
-                            See Details
-                            <span class="tf-icons bx bx-right-arrow-alt"></span>
-                          </a>
                         </div>
                       </div>
                     </div>
@@ -131,7 +116,7 @@
                         <div class="card-body">
                           <div class="card-title d-flex align-items-start justify-content-between">
                             <div class="avatar flex-shrink-0">
-                              <i class="text-warning bx bx-wallet bx-lg"></i>
+                              <i class="text-warning bx bx-wallet bx-md"></i>
                             </div>
                             <div class="dropdown">
                               <button
@@ -146,16 +131,11 @@
                               </button>
                               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt3">
                                 <a class="dropdown-item" href="javascript:void(0);">View More</a>
-                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
                               </div>
                             </div>
                           </div>
                           <span class="fw-semibold d-block mb-1 text-warning">Profit</span>
                           <h3 class="card-title mb-3 text-warning">15</h3>
-                          <a href="" class="btn btn-sm rounded-pill btn-outline-warning">
-                            See Details
-                            <span class="tf-icons bx bx-right-arrow-alt"></span>
-                          </a>
                         </div>
                       </div>
                     </div>
