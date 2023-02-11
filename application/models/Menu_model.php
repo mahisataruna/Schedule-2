@@ -3,8 +3,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Menu_model extends CI_Model
-{
+{	
+	// Private table
 	private $_table = "user_menu";
+	private $_table2 = "user_sub_menu";
 	
     public function getSubMenu()
 	{
@@ -13,6 +15,26 @@ class Menu_model extends CI_Model
 		ON `user_sub_menu`.`menu_id` = `user_menu`.`id`
 		";
 		return $this->db->query($query)->result_array();
+	}
+	// Edit subMenu
+	public function editsubmenu($id,$data)
+	{
+		$id = $this->input->post('id');
+		$data = array(
+			'menu_id' => $this->input->post('menu_id'),
+			'title' => $this->input->post('title'),
+			'url' => $this->input->post('url'),
+			'icon' => $this->input->post('icon'),
+			'is_active' => $this->input->post('is_active')
+		);
+		$this->db->where('id', $id);
+		$this->db->update('user_sub_menu', $data);
+		return TRUE;
+	}
+	// Delete subMenu
+	public function deletesubmenu($id)
+	{
+		return $this->db->delete($this->_table2, array("id" => $id));	
 	}
 
 	// Edit menu

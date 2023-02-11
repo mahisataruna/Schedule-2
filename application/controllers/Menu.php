@@ -32,6 +32,7 @@ class Menu extends CI_Controller
             redirect('menu');
         }
     }
+    
     // Edit menu controller
     public function edit_menu()
 	{
@@ -103,5 +104,34 @@ class Menu extends CI_Controller
             redirect('menu/submenu');
         }
     }
-    // Next Edit submenu
+    // Edit SubMenu
+    public function edit_submenu()
+	{
+		$id = $this->input->post('id');
+		$this->load->model('Menu_model');
+		$this->Menu_model->editsubmenu($id,$data);
+		$this->session->set_flashdata('message', 
+            '<div class="alert alert-primary alert-dismissible" role="alert">
+                <i class="bx bx-fw bxs-bell bx-tada"></i> Your Submenu has been update! 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+             </div>'
+            );
+		redirect('menu/submenu');
+	}
+    // Delete submenu
+    public function delete_submenu($id=null)
+	{
+		if (!isset($id)) show_404();
+		$this->load->model('Menu_model');
+		if ($this->Menu_model->deletesubmenu($id)) {
+			$this->session->set_flashdata('message', 
+            '<div class="alert alert-primary alert-dismissible" role="alert">
+                <i class="bx bx-fw bxs-bell bx-tada"></i> Your Submenu has been delete! 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+             </div>'
+            );
+			redirect(site_url('menu/submenu'));
+		}	
+	}
+	//End
 }
