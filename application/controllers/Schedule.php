@@ -23,7 +23,7 @@ class Schedule extends CI_Controller
             $this->load->view('templates/footer');
         }  else {
             $data = [
-
+                'user_id' => $this->input->post('user_id'),
 				'tanggal' => $this->input->post('tanggal'),
 				'lokasi' => $this->input->post('lokasi'),
 				'kegiatan' => $this->input->post('kegiatan'),
@@ -34,10 +34,23 @@ class Schedule extends CI_Controller
 			$this->db->insert('schedule', $data);
             // Set flashdata
 			$this->session->set_flashdata('message', 
-                        '<div class="alert alert-primary alert-dismissible" role="alert">
-                            <i class="bx bx-fw bxs-bell bx-tada"></i> Your schedule added! 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>'
+                        '
+                        <div class="col-lg col-sm col-md mb-3">
+                            <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                            <div class="toast-header">
+                                <i class="bx bx-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-semibold">
+                                Yay, success!
+                                </div>
+                                <small>Now</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                You success added new schedule!
+                            </div>
+                            </div>
+                        </div>
+                        '
                         );
 			redirect('schedule');
         }  
@@ -74,11 +87,22 @@ class Schedule extends CI_Controller
 			$this->db->insert('notes', $data);
             // Set flashdata
 			$this->session->set_flashdata('message', 
-                        '<div class="alert alert-primary alert-dismissible" role="alert">
-                            <i class="bx bx-fw bxs-bell bx-tada"></i> Your notes is added! 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>'
-                        );
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Yay, success!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success added new notes!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
 			redirect('schedule/notes');
         }
     }
@@ -111,13 +135,24 @@ class Schedule extends CI_Controller
 				'end'           => $this->input->post('end')
 			];
 			$this->db->insert('events', $data);
-
+            // Set flashdata
 			$this->session->set_flashdata('message', 
-                        '<div class="alert alert-primary alert-dismissible" role="alert">
-                            <i class="bx bx-fw bxs-bell bx-tada"></i> Your event is added! 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>'
-                        );
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Yay, success!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success added new events!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
 			redirect('schedule/calendar');
         }
     }

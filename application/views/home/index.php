@@ -15,6 +15,7 @@
 
         <!-- Start -->
         <div class="col-lg col-md col-sm mb-5">
+            <?= $this->session->flashdata('message'); ?>
 
             <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-inner">

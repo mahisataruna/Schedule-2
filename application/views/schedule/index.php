@@ -37,7 +37,7 @@
                     
                     <div class="card-body">
                         <div class="table-responsive text-nowrap" style="height: 350px">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col-sm" style="text-align: center;">#</th>
@@ -75,8 +75,14 @@
                                         ?>
                                         </td>
                                         <td width="10%" style="text-align: center;">
-										  <a href="" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalEditSubMenu"><i class="tf-icons bx bx-edit"></i></a>
-										  <a href="" onclick="return confirm('Apakah anda yakin ingin menghapus submenu ini?')" class="btn btn-sm btn-danger"><i class="tf-icons bx bx-trash"></i></a>
+                                            <div class="btn-group">
+                                                <a href="" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#editScheduleModal">
+                                                    <span class="tf-icons bx bx-edit"></span>
+                                                </a>
+                                                <a href="" class="btn btn-icon btn-danger" onclick="return confirm('Are you sure delete this schedule?')">
+                                                    <span class="tf-icons bx bx-trash"></span>
+                                                </a>    
+                                            </div>
 									    </td>
                                     </tr>
                                     <?php $i++; ?>
@@ -109,6 +115,69 @@
                 </div>
                 <form action="<?= base_url('schedule/index'); ?>" method="post">
                     <div class="modal-body">
+                        <input type="hidden" id="user_id" name="user_id" value="<?= $user['id']; ?>">
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="nameBasic" class="form-label">Date</label>
+                                <input type="date" id="tanggal" name="tanggal" class="form-control">
+                                <?= form_error('tanggal', '<small class="text-danger">', '</small>');?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="lokasi" class="form-label">Location</label>
+                                <input type="text" id="lokasi" name="lokasi" class="form-control" placeholder="Enter Location">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="lokasi" class="form-label">Schedule</label>
+                                <textarea name="kegiatan" id="kegiatan" cols="30" rows="10" class="form-control" placeholder="Enter Schedule Description"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 mb-3">
+                                <label for="pemasukan" class="form-label">Pemasukan</label>
+                                <input type="number" id="pemasukan" name="pemasukan" class="form-control" placeholder="Ex. 10000">
+                            </div>
+                            <div class="col-lg-6 mb-3">
+                                <label for="pengeluaran" class="form-label">Pengeluaran</label>
+                                <input type="number" id="pengeluaran" name="pengeluaran" class="form-control" placeholder="Ex. 10000">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col mb-3">
+                                <label for="lokasi" class="form-label">Status</label>
+                                <select id="status" name="status" class="form-select">
+                                    <option>Choose</option>
+                                    <option value="1">Pergi</option>
+                                    <option value="0">Tidak</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- End -->
+    <!-- Modal Edit -->
+    <div class="modal fade" id="editScheduleModal" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editScheduleModal">
+                        <i class="bx bx-fw bx-plus bx-flashing"></i>
+                        Edit Schedule
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?= base_url('schedule/index'); ?>" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" id="user_id" name="user_id" value="<?= $user['id']; ?>">
                         <div class="row">
                             <div class="col mb-3">
                                 <label for="nameBasic" class="form-label">Date</label>

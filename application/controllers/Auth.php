@@ -43,44 +43,115 @@ class Auth extends CI_Controller
                     // Redirect berdasarkan role_id
                     if ($user['role_id'] == 1 ) {
                         $this->session->set_flashdata('message', 
-                        '<div class="alert alert-primary alert-dismissible" role="alert">
-                            <i class="bx bx-fw bxs-bell bx-tada"></i> Hello, welcome to Schedule Web App! 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>'
+                        '
+                        <div class="col-lg col-sm col-md mb-3">
+                            <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                            <div class="toast-header">
+                                <i class="bx bx-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-semibold">
+                                Welcome Admin!
+                                </div>
+                                <small>Now</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                Check new update from this schedule app!
+                            </div>
+                            </div>
+                        </div>
+                        '
                         );
                         redirect('admin');
                     } else {
+                        $this->session->set_flashdata('message', 
+                        '
+                        <div class="col-lg col-sm col-md mb-3">
+                            <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                            <div class="toast-header">
+                                <i class="bx bx-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-semibold">
+                                Welcome user!
+                                </div>
+                                <small>Now</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                Here, you can get some fitur with schedule app. Enjoy!
+                            </div>
+                            </div>
+                        </div>
+                        '
+                        );
                         redirect('home');
                     }
                     
                 } else {
                     // Jika password salah
                     $this->session->set_flashdata('message', 
-                    '<div class="alert alert-danger alert-dismissible" role="alert">
-                        <i class="bx bx-fw bxs-bell bx-tada"></i> Wrong password! 
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>'
-                    );
+                        '
+                        <div class="col-lg col-sm col-md mb-3">
+                            <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                            <div class="toast-header">
+                                <i class="bx bx-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-semibold">
+                                Upps!
+                                </div>
+                                <small>Now</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                Password wrong. Check your password!
+                            </div>
+                            </div>
+                        </div>
+                        '
+                        );
                     redirect('auth');
                 }
             } else {
                 // Jika belum active
                 $this->session->set_flashdata('message', 
-                '<div class="alert alert-danger alert-dismissible" role="alert">
-                    <i class="bx bx-fw bxs-bell bx-tada"></i> Your account not active! 
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>'
-                );
+                        '
+                        <div class="col-lg col-sm col-md mb-3">
+                            <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                            <div class="toast-header">
+                                <i class="bx bx-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-semibold">
+                                Upps!
+                                </div>
+                                <small>Now</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                Your account not active, active your account first!
+                            </div>
+                            </div>
+                        </div>
+                        '
+                        );
 			    redirect('auth');
             }
         } else {
             // Gagalkan login jika user tidak ada
             $this->session->set_flashdata('message', 
-            '<div class="alert alert-danger alert-dismissible" role="alert">
-                <i class="bx bx-fw bxs-bell bx-tada"></i> Your email not registered! 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>'
-            );
+                        '
+                        <div class="col-lg col-sm col-md mb-3">
+                            <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                            <div class="toast-header">
+                                <i class="bx bx-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-semibold">
+                                Upps!
+                                </div>
+                                <small>Now</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                Your email not registed, register first!
+                            </div>
+                            </div>
+                        </div>
+                        '
+                        );
             redirect('auth');
         }
     }
@@ -118,12 +189,25 @@ class Auth extends CI_Controller
             ];
             // insert ke database
             $this->db->insert('user', $data);
-            // Pesan Success
-            $this->session->set_flashdata('message', 
-            '<div class="alert alert-primary alert-dismissible" role="alert">
-                <i class="bx bx-fw bxs-bell bx-tada"></i> Registered account success! 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>'
+            // Success registered account
+		    $this->session->set_flashdata('message', 
+            '
+            <div class="col-lg col-sm col-md mb-3">
+                <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                    <div class="toast-header">
+                        <i class="bx bx-bell bx-tada me-2"></i>
+                        <div class="me-auto fw-semibold">
+                            Registration Success!
+                        </div>
+                        <small>Now</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        Your has been registerd. Please login.
+                    </div>
+                </div>
+            </div>
+            '
             );
             redirect('auth');
         }
@@ -136,11 +220,24 @@ class Auth extends CI_Controller
 		$this->session->unset_userdata('role_id');
         // Success and flashdata and redirect
 		$this->session->set_flashdata('message', 
-            '<div class="alert alert-primary alert-dismissible" role="alert">
-                <i class="bx bx-fw bxs-like bx-tada"></i> Your logging out! 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>'
-            );
+            '
+            <div class="col-lg col-sm col-md mb-3">
+                <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                    <div class="toast-header">
+                        <i class="bx bx-bell bx-tada me-2"></i>
+                        <div class="me-auto fw-semibold">
+                            Logout Success!
+                        </div>
+                        <small>Now</small>
+                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    </div>
+                    <div class="toast-body">
+                        Your has been logout.
+                    </div>
+                </div>
+            </div>
+            '
+        );
 		redirect('auth');
     }
 }

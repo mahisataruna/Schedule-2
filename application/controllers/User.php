@@ -64,18 +64,42 @@ class User extends CI_Controller
 			$new_password = $this->input->post('new_password1');
 			if(!password_verify($current_password, $data['user']['password'])) {
 				$this->session->set_flashdata('message', 
-                        '<div class="alert alert-danger alert-dismissible" role="alert">
-                            <i class="bx bx-fw bxs-bell bx-tada"></i> Current password wrong! 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>');
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Upps!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You current password wrong!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
 				redirect('user/changepassword');
 			} else {
 				if($current_password == $new_password) {
 					$this->session->set_flashdata('message', 
-                        '<div class="alert alert-danger alert-dismissible" role="alert">
-                            <i class="bx bx-fw bxs-bell bx-tada"></i> Cannot same to current password! 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>');
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Upps!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            Your password cannot change, dont match to current password!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
 					redirect('user/changepassword');
 				} else {
 					//rules untuk password yang benar
@@ -85,10 +109,22 @@ class User extends CI_Controller
 					$this->db->where('email', $this->session->userdata('email'));
 					$this->db->update('user');
                     $this->session->set_flashdata('message', 
-                        '<div class="alert alert-primary alert-dismissible" role="alert">
-                            <i class="bx bx-fw bxs-bell bx-tada"></i> Success change password. 
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>');
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Yay, success!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success changes new password!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
 					redirect('user/changepassword');
 				}
 			}

@@ -24,11 +24,22 @@ class Menu extends CI_Controller
         } else {
             $this->db->insert('user_menu', ['menu' => $this->input->post('menu')]);
             $this->session->set_flashdata('message', 
-            '<div class="alert alert-primary alert-dismissible" role="alert">
-                <i class="bx bx-fw bxs-bell bx-tada"></i> New menu added! 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>'
-            );
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Yay, success!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success added new menu!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
             redirect('menu');
         }
     }
@@ -39,11 +50,22 @@ class Menu extends CI_Controller
 		$this->load->model('Menu_model');
 		$this->Menu_model->editmenu($data,$id);
 		$this->session->set_flashdata('message', 
-            '<div class="alert alert-primary alert-dismissible" role="alert">
-                <i class="bx bx-fw bxs-bell bx-tada"></i> Edit menu success! 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>'
-            );
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-success" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Yay, success!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success update menu!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
 		redirect('menu');
 	}
     // Delete menu
@@ -52,12 +74,24 @@ class Menu extends CI_Controller
 		if (!isset($id)) show_404();
 		$this->load->model('Menu_model');
 		if ($this->Menu_model->deletemenu($id)) {
-			$this->session->set_flashdata('message', 
-            '<div class="alert alert-primary alert-dismissible" role="alert">
-                <i class="bx bx-fw bxs-bell bx-tada"></i> Success delete menu! 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>'
-            );
+			
+            $this->session->set_flashdata('message', 
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Menu delete!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success delete this menu!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
 			redirect(site_url('menu'));
 		}
 	}
@@ -96,11 +130,22 @@ class Menu extends CI_Controller
 			];
 			$this->db->insert('user_sub_menu', $data);
             $this->session->set_flashdata('message', 
-            '<div class="alert alert-primary alert-dismissible" role="alert">
-                <i class="bx bx-fw bxs-bell bx-tada"></i> New Submenu added! 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>'
-            );
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Yay, success!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success added new submenu!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
             redirect('menu/submenu');
         }
     }
@@ -111,11 +156,22 @@ class Menu extends CI_Controller
 		$this->load->model('Menu_model');
 		$this->Menu_model->editsubmenu($id,$data);
 		$this->session->set_flashdata('message', 
-            '<div class="alert alert-primary alert-dismissible" role="alert">
-                <i class="bx bx-fw bxs-bell bx-tada"></i> Your Submenu has been update! 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>'
-            );
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-success" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Yay, success!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success update submenu!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
 		redirect('menu/submenu');
 	}
     // Delete submenu
@@ -125,11 +181,22 @@ class Menu extends CI_Controller
 		$this->load->model('Menu_model');
 		if ($this->Menu_model->deletesubmenu($id)) {
 			$this->session->set_flashdata('message', 
-            '<div class="alert alert-primary alert-dismissible" role="alert">
-                <i class="bx bx-fw bxs-bell bx-tada"></i> Your Submenu has been delete! 
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>'
-            );
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Notes!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success delete submenu!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
 			redirect(site_url('menu/submenu'));
 		}	
 	}
