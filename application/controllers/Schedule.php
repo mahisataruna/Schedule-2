@@ -156,4 +156,20 @@ class Schedule extends CI_Controller
 			redirect('schedule/calendar');
         }
     }
+    // Controller Detail Calendar
+    public function detail_calendar()
+    {
+        $data['title']  = 'Detail Calendar';
+        $data['user'] = $this->db->get_where('user', ['email' => 
+        $this->session->userdata('email')])->row_array();
+        // Load modals calendar
+        $this->load->model('Jadwal_m', 'evnt');
+        $data['detailEvents'] = $this->evnt->getEventDtl($data['user']['id']);
+        // Tampil
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/navbar', $data);
+        $this->load->view('schedule/detail_calendar', $data);
+        $this->load->view('templates/footer');
+    }
 }

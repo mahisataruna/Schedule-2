@@ -7,7 +7,7 @@
         <nav aria-label="breadcrumb fw-bold py-3 mb-4">
           <ol class="breadcrumb breadcrumb-style1">
             <li class="breadcrumb-item">
-              <a href="javascript:void(0);">User</a>
+              <a href="javascript:void(0);">Schedule</a>
             </li>
             <li class="breadcrumb-item active"><?= $title; ?></li>
           </ol>
@@ -15,7 +15,22 @@
 
         <!-- Start -->
         <div class="row mb-5">
-            <div class="col-md col-lg-4 mb-3">
+          <div class="col-md-12">
+            <ul class="nav nav-pills flex-column flex-md-row mb-3">
+              <li class="nav-item">
+                <a class="nav-link active" href="javascript:void(0);">
+                  <i class="bx bx-calendar me-1"></i> Event
+                </a>
+              </li>
+                    
+              <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('schedule/detail_calendar') ?>">
+                  <i class="bx bx-show me-1"></i> Detail Events
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md col-lg-4 mb-3">
                 <!-- Pesan error validation-->
 			          <?php if(validation_errors()) : ?>
 				        <div class="alert alert-danger" role="alert">
@@ -67,9 +82,9 @@
                         <div class="flex-shrink-0 mt-2">
                           <h5 class="card-title"><i class="bx bx-fw bx-calendar"></i> My Calendar</h5>
                         </div>
-                        <a href="" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detailModal">
+                        <!-- <a href="" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#detailModal">
                           <i class="bx bx-cog bx-flashing"></i>
-                        </a>
+                        </a> -->
                     </div>
                     <!-- Calendar events -->
                     <div class="container-fluid mb-5">
@@ -84,52 +99,6 @@
     </div>
     <!-- / Content -->
 
-    <!-- See details modals -->
-    <div class="modal fade" id="detailModal" tabindex="-1" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="detailModal">
-                        <i class="bx bx-fw bx-plus bx-flashing"></i>
-                        Detail Event
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <!-- Start -->
-                <div class="modal-body">
-                  <div class="table-responsive text-nowrap" style="height: 350px">
-                    <table class="table table-bordered">
-                      <thead>
-                        <tr>
-                          <th scope="col-sm" style="text-align: center;">#</th>
-										      <th scope="col-sm" style="text-align: center;">Description</th>
-										      <th scope="col-sm">Start</th>
-										      <th scope="col-sm">End</th>
-										      <th scope="col-sm" style="text-align: center;">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      <!-- Start foreach -->
-                      <?php $i=1; ?>
-								      <?php foreach ($detailEvents as $de) :  ?>
-                        <tr id="tabelschedule">
-                          <th scope="row" width="2%" style="text-align: center;"><?= $i; ?></th>
-                          <td width="20%" style="text-align: center;"><?= $de['description']; ?></td>
-                          <td width="30%"><?= $de['start']; ?></td>
-                          <td width="30%"><?= $de['end']; ?></td>
-                          <td width="10%" style="text-align: center;">
-										        <a href="" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modalEditSubMenu"><i class="tf-icons bx bx-edit"></i></a>
-										        <a href="" onclick="return confirm('Apakah anda yakin menghapus event ini?')" class="btn btn-sm btn-danger"><i class="tf-icons bx bx-trash"></i></a>
-									        </td>
-                        </tr>
-                        <?php $i++; ?>
-									      <?php endforeach ; ?>  
-                        <!-- End foreach -->
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End -->
+    
+
+   
