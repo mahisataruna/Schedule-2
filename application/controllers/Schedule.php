@@ -56,6 +56,31 @@ class Schedule extends CI_Controller
         }  
         
     }
+    public function editschedule()
+    {
+        $id = $this->input->post('id');
+		// Ambil data schedule
+        $this->load->model('Jadwal_m', 'jadwal');
+        $this->jadwal->editschedule($id,$data);
+		$this->session->set_flashdata('message', 
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-success" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Yay, success!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success update schedule!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
+		redirect('schedule');
+    }
     // Controller notes
     public function notes()
     {

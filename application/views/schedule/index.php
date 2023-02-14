@@ -165,6 +165,9 @@
     </div>
     <!-- End -->
     <!-- Modal Edit -->
+    <?php $i = 0;
+        foreach($scheduleMember as $sm) : $i++;
+    ?>
     <div class="modal fade" id="editScheduleModal" tabindex="-1" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -175,42 +178,42 @@
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="<?= base_url('schedule/index'); ?>" method="post">
+                <?= form_open_multipart('schedule/editschedule');?>
                     <div class="modal-body">
                         <input type="hidden" id="user_id" name="user_id" value="<?= $user['id']; ?>">
                         <div class="row">
                             <div class="col mb-3">
                                 <label for="nameBasic" class="form-label">Date</label>
-                                <input type="date" id="tanggal" name="tanggal" class="form-control">
+                                <input type="date" id="tanggal" name="tanggal" class="form-control" value="<?= $sm['tanggal']; ?>">
                                 <?= form_error('tanggal', '<small class="text-danger">', '</small>');?>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mb-3">
                                 <label for="lokasi" class="form-label">Location</label>
-                                <input type="text" id="lokasi" name="lokasi" class="form-control" placeholder="Enter Location">
+                                <input type="text" id="lokasi" name="lokasi" class="form-control" value="<?= $sm['lokasi']; ?>">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mb-3">
                                 <label for="lokasi" class="form-label">Schedule</label>
-                                <textarea name="kegiatan" id="kegiatan" cols="30" rows="10" class="form-control" placeholder="Enter Schedule Description"></textarea>
+                                <textarea name="kegiatan" id="kegiatan" cols="30" rows="10" class="form-control" value="<?= $sm['kegiatan']; ?>"></textarea>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 mb-3">
                                 <label for="pemasukan" class="form-label">Pemasukan</label>
-                                <input type="number" id="pemasukan" name="pemasukan" class="form-control" placeholder="Ex. 10000">
+                                <input type="number" id="pemasukan" name="pemasukan" class="form-control" value="<?= $sm['pemasukan']; ?>">
                             </div>
                             <div class="col-lg-6 mb-3">
                                 <label for="pengeluaran" class="form-label">Pengeluaran</label>
-                                <input type="number" id="pengeluaran" name="pengeluaran" class="form-control" placeholder="Ex. 10000">
+                                <input type="number" id="pengeluaran" name="pengeluaran" class="form-control" value="<?= $sm['pengeluaran']; ?>">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col mb-3">
                                 <label for="lokasi" class="form-label">Status</label>
-                                <select id="status" name="status" class="form-select">
+                                <select id="status" name="status" class="form-select" value="<?= $sm['status']; ?>">
                                     <option>Choose</option>
                                     <option value="1">Pergi</option>
                                     <option value="0">Tidak</option>
@@ -225,4 +228,5 @@
             </div>
         </div>
     </div>
+    <?php endforeach; ?>
     <!-- End -->
