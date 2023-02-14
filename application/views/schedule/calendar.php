@@ -19,13 +19,13 @@
             <ul class="nav nav-pills flex-column flex-md-row mb-3">
               <li class="nav-item">
                 <a class="nav-link active" href="javascript:void(0);">
-                  <i class="bx bx-calendar me-1"></i> Event
+                  <i class="bx bx-calendar bx-tada me-1"></i> Event
                 </a>
               </li>
                     
               <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('schedule/detail_calendar') ?>">
-                  <i class="bx bx-show me-1"></i> Detail Events
+                  <i class="bx bx-show me-1"></i> Detail Calendar
                 </a>
               </li>
             </ul>

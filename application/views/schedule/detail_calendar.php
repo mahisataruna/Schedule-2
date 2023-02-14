@@ -25,7 +25,7 @@
                     
                     <li class="nav-item">
                         <a class="nav-link active" href="javascript:void(0);">
-                            <i class="bx bx-show me-1"></i> Detail Events
+                            <i class="bx bx-show bx-flashing me-1"></i> Detail Calendar
                         </a>
                     </li>
                 </ul>
@@ -42,7 +42,7 @@
                 <div class="card">
                     <div class="card-header d-flex align-items-start justify-content-between">
                         <div class="flex-shrink-0 mt-2">
-                          <h5 class="card-title"><i class="bx bx-fw bx-show"></i> Detail Event</h5>
+                          <h5 class="card-title"><i class="bx bx-fw bx-show"></i> Detail Event/Calendar</h5>
                         </div>
                     </div>
                     <div class="card-body">
@@ -71,7 +71,7 @@
                                                 <a href="" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#editEventModal">
                                                     <span class="tf-icons bx bx-edit"></span>
                                                 </a>
-                                                <a href="" onclick="return confirm('Apakah anda yakin menghapus event ini?')" class="btn btn-sm btn-danger"><i class="tf-icons bx bx-trash"></i></a>
+                                                <a href="" onclick="return confirm('Apakah anda yakin menghapus event ini?')" class="btn btn-icon btn-danger"><i class="tf-icons bx bx-trash"></i></a>
                                             </div>
 									    </td>
                                     </tr>

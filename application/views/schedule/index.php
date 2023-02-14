@@ -28,7 +28,7 @@
                 <div class="card">
                     <div class="card-header d-flex align-items-start justify-content-between">
                         <div class="flex-shrink-0 mt-2">
-                          <h5 class="card-title"><i class="bx bx-fw bx-calendar bx-tada"></i> My Schedule</h5>
+                          <h5 class="card-title"><i class="bx bx-fw bx-task bx-tada"></i> My Schedule</h5>
                         </div>
                         <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSchedule">
                           Add Schedule
