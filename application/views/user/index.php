@@ -16,11 +16,11 @@
         <!-- Profile card -->
         <div class="card mb-4">
           <div class="user-profile-header-banner">
-            <img src="<?= base_url('assets/img/banner/banner.png'); ?>" alt="Banner image" class="rounded-top" style="width : 100%;">
+            <img src="<?= base_url('assets/img/banner/banner.png'); ?>" alt="Banner image" class="rounded-top">
           </div>
           <div class="user-profile-header d-flex flex-column flex-sm-row text-sm-start text-center mb-4">
             <div class="flex-shrink-0 mt-n2 mx-sm-0 mx-auto">
-              <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" alt="user image" class="d-block h-auto ms-0 ms-sm-4 rounded user-profile-img" style="width : 100px;">
+              <img src="<?= base_url('assets/img/profile/') . $user['image']; ?>" alt="user image" class="d-block h-auto ms-0 ms-sm-4 rounded-circle user-profile-img">
             </div>
             <div class="flex-grow-1 mt-3 mt-sm-5">
               <div class="d-flex align-items-md-end align-items-sm-start align-items-center justify-content-md-between justify-content-start mx-4 flex-md-row flex-column gap-4">
@@ -42,10 +42,10 @@
                       <i class="bx bx-fw bx-laptop"></i> Developer
                     </li>
                     <li class="list-inline-item fw-semibold">
-                      <i class="bx bx-map"></i> Padang City, Indonesia
+                      <i class="bx bx-map"></i> Padang City
                     </li>
                     <li class="list-inline-item fw-semibold">
-                      <i class="bx bx-calendar-alt"></i> Joined <?= date('d F Y', $user['date_created']); ?>
+                      <i class="bx bx-calendar-alt"></i><?= date('d F Y', $user['date_created']); ?>
                     </li>
                   </ul>
                 </div>

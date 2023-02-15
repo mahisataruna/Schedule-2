@@ -42,7 +42,8 @@
 
     <!-- Fullcalendar -->
     <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/fullcalendar/main.css" />
-    <!-- Page CSS -->
+    <!-- Page profile CSS -->
+    <link rel="stylesheet" href="<?= base_url('assets/'); ?>vendor/css/pages/page-profile.css" />
 
     <!-- Helpers -->
     <script src="<?= base_url('assets/'); ?>vendor/js/helpers.js"></script>
