@@ -79,7 +79,7 @@
                                                 <a href="" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#editModal<?= $sm['id_schedule']; ?>">
                                                     <span class="tf-icons bx bx-edit"></span>
                                                 </a>
-                                                <a href="" class="btn btn-icon btn-danger" onclick="return confirm('Are you sure delete this schedule?')">
+                                                <a href="<?= base_url('schedule/deleteschedule/'). $sm['id_schedule'];?>" class="btn btn-icon btn-danger" onclick="return confirm('Are you sure delete this schedule?')">
                                                     <span class="tf-icons bx bx-trash"></span>
                                                 </a>    
                                             </div>

@@ -81,6 +81,32 @@ class Schedule extends CI_Controller
                 );
 		redirect('schedule');
     }
+    // Delete schedule
+    public function deleteschedule($id_schedule=null)
+    {
+        if (!isset($id_schedule)) show_404();
+		$this->load->model('Jadwal_m', 'jadwal');
+		if ($this->jadwal->deleteschedule($id_schedule)) {
+			$this->session->set_flashdata('message', 
+                '
+                <div class="col-lg col-sm col-md mb-3">
+                    <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                        <div class="toast-header">
+                            <i class="bx bx-bell bx-tada me-2"></i>
+                            <div class="me-auto fw-semibold">Notes!</div>
+                            <small>Now</small>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            You success delete Schedule!
+                        </div>
+                    </div>
+                </div>
+                '
+                );
+			redirect(site_url('schedule'));
+        }
+    }
     // Controller notes
     public function notes()
     {

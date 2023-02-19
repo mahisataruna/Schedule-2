@@ -4,6 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Jadwal_m extends CI_Model
 {
+    // Priv Table
+    private $_table = "schedule";
     public function getSchedule($getSchedule_data=null)
     {
         $query = "SELECT * FROM `schedule`
@@ -29,6 +31,10 @@ class Jadwal_m extends CI_Model
 		$this->db->where('id_schedule', $id_schedule);
 		$this->db->update('schedule', $data);
 		return TRUE;
+    }
+    public function deleteschedule($id_schedule)
+    {
+        return $this->db->delete($this->_table, array("id_schedule" => $id_schedule));
     }
 
     public function getNotes($getNotes_data=null)
