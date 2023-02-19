@@ -58,10 +58,10 @@ class Schedule extends CI_Controller
     }
     public function editschedule()
     {
-        $id = $this->input->post('id');
+        $id_schedule = $this->input->post('id_schedule');
 		// Ambil data schedule
         $this->load->model('Jadwal_m', 'jadwal');
-        $this->jadwal->editschedule($id,$data);
+        $this->jadwal->editschedule($id_schedule,$data);
 		$this->session->set_flashdata('message', 
                 '
                 <div class="col-lg col-sm col-md mb-3">

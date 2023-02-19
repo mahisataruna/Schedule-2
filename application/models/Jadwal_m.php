@@ -14,9 +14,9 @@ class Jadwal_m extends CI_Model
 		";
 		return $this->db->query($query)->result_array();
     }
-    public function editschedule($id,$data)
+    public function editschedule($id_schedule,$data)
     {
-        $id = $this->input->post('id');
+        $id_schedule = $this->input->post('id_schedule');
 		$data = array(
 			'user_id' => $this->input->post('user_id'),
 			'tanggal' => $this->input->post('tanggal'),				
@@ -26,7 +26,7 @@ class Jadwal_m extends CI_Model
             'pengeluaran' => $this->input->post('pengeluaran'),
 			'status' => $this->input->post('status') 
 		);
-		$this->db->where('id', $id);
+		$this->db->where('id_schedule', $id_schedule);
 		$this->db->update('schedule', $data);
 		return TRUE;
     }

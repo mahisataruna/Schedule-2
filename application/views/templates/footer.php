@@ -5,12 +5,12 @@
                   >
                     <div>
                       <a
-                        href="https://github.com/mahisataruna"
+                        href="https://github.com/mahisataruna/Schedule-2"
                         target="_blank"
                         class="footer-text fw-bolder"
                         >Schedule 2 Web </a
                       >
-                      - Alpha Version 1.2.27 |
+                      - Alpha Version 1.2.28 |
                       ©
                       <script>
                         document.write(new Date().getFullYear());

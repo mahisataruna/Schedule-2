@@ -76,7 +76,7 @@
                                         </td>
                                         <td width="10%" style="text-align: center;">
                                             <div class="btn-group">
-                                                <a href="" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#editScheduleModal">
+                                                <a href="" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#editModal<?= $sm['id_schedule']; ?>">
                                                     <span class="tf-icons bx bx-edit"></span>
                                                 </a>
                                                 <a href="" class="btn btn-icon btn-danger" onclick="return confirm('Are you sure delete this schedule?')">
@@ -168,11 +168,11 @@
     <?php $i = 0;
         foreach($scheduleMember as $sm) : $i++;
     ?>
-    <div class="modal fade" id="editScheduleModal" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal fade" id="editModal<?= $sm['id_schedule']; ?>" tabindex="-1" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editScheduleModal">
+                    <h5 class="modal-title" id="editApliedLabel1">
                         <i class="bx bx-fw bx-plus bx-flashing"></i>
                         Edit Schedule
                     </h5>
@@ -180,6 +180,7 @@
                 </div>
                 <?= form_open_multipart('schedule/editschedule');?>
                     <div class="modal-body">
+                        <input type="hidden" class="form-control" id="id_schedule" name="id_schedule" value="<?= $sm['id_schedule']; ?>">
                         <input type="hidden" id="user_id" name="user_id" value="<?= $user['id']; ?>">
                         <div class="row">
                             <div class="col mb-3">
@@ -197,7 +198,7 @@
                         <div class="row">
                             <div class="col mb-3">
                                 <label for="lokasi" class="form-label">Schedule</label>
-                                <textarea name="kegiatan" id="kegiatan" cols="30" rows="10" class="form-control" value="<?= $sm['kegiatan']; ?>"></textarea>
+                                <textarea name="kegiatan" id="kegiatan" cols="30" rows="10" class="form-control" value="<?= $sm['kegiatan']; ?>"><?= $sm['kegiatan']; ?></textarea>
                             </div>
                         </div>
                         <div class="row">
@@ -214,7 +215,15 @@
                             <div class="col mb-3">
                                 <label for="lokasi" class="form-label">Status</label>
                                 <select id="status" name="status" class="form-select" value="<?= $sm['status']; ?>">
-                                    <option>Choose</option>
+                                    <option>
+                                        <?php 
+                                            if($sm['status']== 1) {
+                                                echo 'Pergi';
+                                            } else {
+                                                echo 'Tidak';
+                                            }
+                                        ?>
+                                    </option>
                                     <option value="1">Pergi</option>
                                     <option value="0">Tidak</option>
                                 </select>
