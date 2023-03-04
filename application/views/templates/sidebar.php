@@ -75,6 +75,8 @@
               
             <?php endforeach; ?>
             
+            <!-- End Query -->
+            
           </ul>
         </aside>
         <!-- / Menu -->
