@@ -68,7 +68,7 @@
                                         <td width="30%"><?= $de['end']; ?></td>
                                         <td width="10%" style="text-align: center;">
 									        <div class="btn-group">
-                                                <a href="" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#editEventModal">
+                                                <a href="" class="btn btn-icon btn-success" data-bs-toggle="modal" data-bs-target="#editEventModal<?= $de['id_event']; ?>">
                                                     <span class="tf-icons bx bx-edit"></span>
                                                 </a>
                                                 <a href="" onclick="return confirm('Apakah anda yakin menghapus event ini?')" class="btn btn-icon btn-danger"><i class="tf-icons bx bx-trash"></i></a>
@@ -95,7 +95,7 @@
     <?php $i = 0;
         foreach ($detailEvents as $de) : $i++;
     ?>
-    <div class="modal fade" id="editEventModal" tabindex="-1" style="display: none;" aria-hidden="true">
+    <div class="modal fade" id="editEventModal<?= $de['id_event']; ?>" tabindex="-1" style="display: none;" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -107,22 +107,22 @@
                 </div>
                 <form action="">
                     <div class="modal-body">
-                        <input type="hidden" name="id" id="id" value="<?= $de['description']; ?>">
+                        <input type="hidden" name="id" id="id" value="<?= $de['id_event']; ?>">
                         <div class="row">
                           <div class="col-lg-6 mb-3">
                             <label for="start" class="form-label">Start Event</label>
-                            <input type="datetime-local" class="form-control" name="start" id="start">
+                            <input type="datetime-local" class="form-control" name="start" id="start" value="<?= $de['start']; ?>">
                           </div>
                         
                           <div class="col-lg-6 mb-3">
                             <label for="end" class="form-label">End Event</label>
-                            <input type="datetime-local" class="form-control" name="end" id="end">
+                            <input type="datetime-local" class="form-control" name="end" id="end" value="<?= $de['end']; ?>">
                           </div>
                         </div>
                         <div class="row">
                           <div class="col mb-3">
                             <label for="description" class="form-label">Event Description</label>
-                            <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Add Events Description"></textarea>
+                            <textarea name="description" id="description" cols="30" rows="10" class="form-control" value="<?= $de['description']; ?>"><?= $de['description']; ?></textarea>
                             <?= form_error('description', '<small class="text-danger">', '</small>');?>  
                           </div>
                         </div>
