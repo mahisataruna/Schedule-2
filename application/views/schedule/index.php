@@ -14,8 +14,8 @@
         </nav>
 
         <!-- Start -->
-        <div class="row">
-            <div class="col-lg col-md col-sm col">
+        <div class="row mb-5">
+            <div class="col-lg-8 col-md col-sm col mb-3">
                 <!-- Pesan error validation-->
 			    <?php if(validation_errors()) : ?>
 				  <div class="alert alert-danger" role="alert">
@@ -93,6 +93,45 @@
                             </table>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="col-md col-lg-4 mb-3">
+                <div class="row mb-5">
+                    <div class="col-md col-lg-12 col-sm mb-3">
+                        <div class="card bg-light text-center">
+                            <?php
+                                include 'conn.php';
+                                $id = $user['id'];
+                                $data_nt = mysqli_query($koneksi, "SELECT * FROM schedule WHERE user_id=$id");
+                                $sch = mysqli_num_rows($data_nt);
+                            ?> 
+                            <div class="card-header d-flex align-items-start justify-content-between">
+                                <div class="flex-shrink-0 mt-2">
+                                  <h5 class="card-title"><i class="bx bx-fw bx-chart bx-tada"></i> Schedule Count</h5>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h2 class="card-text mb-4"><?= $sch; ?></h2>
+                                <div class="col">
+                                <button
+                                    type="button"
+                                    class="btn btn-outline-primary"
+                                    data-bs-toggle="popover"
+                                    data-bs-offset="0,14"
+                                    data-bs-placement="right"
+                                    data-bs-html="true"
+                                    data-bs-content="<p>This your schedule, you can add new schedule or edit.</p>"
+                                    title="Read me first."
+                                >
+                                <span class="bx bx-fw bx-bell bx-tada"></span>  
+                                    View Details
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
