@@ -10,7 +10,7 @@
                         class="footer-text fw-bolder"
                         >Schedule 2 Web </a
                       >
-                      - Alpha Version 1.2.34 |
+                      - Version 1.0-Beta |
                       ©
                       <script>
                         document.write(new Date().getFullYear());
