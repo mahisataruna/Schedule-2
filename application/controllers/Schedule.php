@@ -223,4 +223,18 @@ class Schedule extends CI_Controller
         $this->load->view('schedule/detail_calendar', $data);
         $this->load->view('templates/footer');
     }
+    public function jobs()
+    {
+        $data['title']  = 'My Jobs';
+        $data['user'] = $this->db->get_where('user', ['email' => 
+        $this->session->userdata('email')])->row_array();
+
+        // view
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/navbar', $data);
+        $this->load->view('schedule/jobs', $data);
+        $this->load->view('templates/footer');
+
+    }
 }

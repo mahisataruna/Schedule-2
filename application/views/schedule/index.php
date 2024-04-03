@@ -16,7 +16,7 @@
         <!-- Start -->
         <div class="row mb-5">
             <!-- Schedule count item -->
-            <div class="col-md col-lg-4 mb-3">
+            <div class="col-md col-lg-3 mb-3">
                 <div class="row mb-5">
                     <div class="col-md col-lg-12 col-sm mb-3">
                         <div class="card bg-light text-center">
@@ -56,7 +56,7 @@
             </div>
             <!-- End -->
             <!-- Schedule table -->
-            <div class="col-lg-8 col-md col-sm col mb-3">
+            <div class="col-lg-9 col-md col-sm col mb-3">
                 <!-- Pesan error validation-->
 			    <?php if(validation_errors()) : ?>
 				  <div class="alert alert-danger" role="alert">

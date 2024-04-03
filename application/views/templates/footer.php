@@ -131,7 +131,7 @@
     
             calendar.render();
         });
-    </script>
+    </script>    
 
   </body>
 </html>
