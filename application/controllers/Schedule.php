@@ -237,4 +237,59 @@ class Schedule extends CI_Controller
         $this->load->view('templates/footer');
 
     }
+
+    public function kantor()
+    {
+        $data['title'] = 'Kantor';
+        $data['user'] = $this->db->get_where('user', ['email' => 
+        $this->session->userdata('email')])->row_array();
+        // Ambil data schedule
+        $this->load->model('Jadwal_m', 'jadwal');
+        $data['scheduleMember'] = $this->jadwal->getSchedule($data['user']['id']);
+        // Form validation
+        $this->form_validation->set_rules('tanggal', 'Tanggal', 'required');
+        
+        if ($this->form_validation->run() == false) {
+            // Tampilkan halaman schedule
+            $this->load->view('templates/header', $data);
+            $this->load->view('templates/sidebar', $data);
+            $this->load->view('templates/navbar', $data);
+            $this->load->view('schedule/index', $data);
+            $this->load->view('templates/footer');
+        }  else {
+            $data = [
+                'user_id' => $this->input->post('user_id'),
+				'tanggal' => $this->input->post('tanggal'),
+				'lokasi' => $this->input->post('lokasi'),
+				'kegiatan' => $this->input->post('kegiatan'),
+                'pemasukan' => $this->input->post('pemasukan'),
+                'pengeluaran' => $this->input->post('pengeluaran'),
+				'status' => $this->input->post('status') 
+			];
+			$this->db->insert('schedule', $data);
+            // Set flashdata
+			$this->session->set_flashdata('message', 
+                        '
+                        <div class="col-lg col-sm col-md mb-3">
+                            <div class="bs-toast toast toast toast-placement-ex m-2 fade top-0 start-50 translate-middle-x show bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+                            <div class="toast-header">
+                                <i class="bx bx-bell bx-tada me-2"></i>
+                                <div class="me-auto fw-semibold">
+                                Yay, success!
+                                </div>
+                                <small>Now</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                You success added new schedule!
+                            </div>
+                            </div>
+                        </div>
+                        '
+                        );
+			redirect('schedule');
+        }  
+    }
+    
+
 }

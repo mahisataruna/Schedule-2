@@ -34,4 +34,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 # Next ignore
 
 vendor/sneat-1.0.0
+db_schedule
 .vscode
