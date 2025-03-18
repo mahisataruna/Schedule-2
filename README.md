@@ -33,10 +33,9 @@
 
 - Clone or download this zip `git clone https://github.com/mahisataruna/Schedule-2.git`
 - Extract if zip format
-- Download database [here](https://www.mediafire.com/file/fnps9o4gvctadco/db_schedule.sql/file)
-- Open your local server / phpmyadmin
+- Download database [here](https://sfl.gl/DBSchedule2)
+- Open & run your local server `xampp`
 - Create new database `db_schedule` and `import` database
-- Run your server
 
 ## Changelog
 
@@ -52,5 +51,5 @@
   <a href="https://t.me/algorithmdev"><img src="https://img.shields.io/badge/Telegram-Channel-blue?logo=telegram&style=social"></a>
   <a href="https://t.me/algorithm_dev"><img src="https://img.shields.io/badge/Telegram-Group-blue?logo=telegram&style=social"></a>
   <br/>
-  AlgorithmIDN © 2024
+  AlgorithmIDN © 2023 - 2025
 </p>
